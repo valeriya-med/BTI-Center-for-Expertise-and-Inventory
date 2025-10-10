@@ -7,21 +7,34 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    document.querySelector('.menu').classList.toggle('active');
+  });
+</script>
+
 <body>
   <!-- Меню -->
   <header id="header">
     <nav>
       <a href="index.html" class="logo">
         <img src="images/zhitomir_gerb.png" alt="Герб Житомира">
-        БТІ СТАНДАРТ
+        БТІ «Центр експертизи та інвентаризації"
       </a>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <ul class="menu">
         <li><a href="#top">НАГОРУ</a></li>
         <li><a href="#home">ГОЛОВНА</a></li>
         <li><a href="#portfolio">ПОРТФОЛІО</a></li>
         <li><a href="#contacts">КОНТАКТИ</a></li>
       </ul>
-      <a href="tel:+380501234567" class="contact-btn">Зателефонувати</a>
+      <a href="#" id="openModalBtn" class="contact-btn">Зв'язатись</a>
     </nav>
   </header>
 
@@ -33,7 +46,7 @@
 
       <div class="hero-content">
         <div class="hero-top">
-          <img src="images/logo.png" alt="БТІ Стандарт" class="hero-logo" />
+          <img src="images/logo.png" alt="БТІ «Центр експертизи та інвентаризації" class="hero-logo" />
           <h2 class="hero-subtitle">ТЕХНІЧНА ІНВЕНТАРИЗАЦІЯ<br><span>НЕРУХОМОСТІ</span></h2>
         </div>
           <h2 class="hero-title">Надання послуг юридичним та фізичним особам</h2>
@@ -165,5 +178,44 @@
       </div>
     </section>
   </main>
+
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModalBtn">&times;</span>
+    <h2>Замовити зворотний дзвінок</h2>
+    <form>
+      <input type="text" placeholder="Ваше ім'я" required>
+      <input type="tel" placeholder="Ваш телефон" required>
+      <button type="submit" class="submit-btn">Замовити</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Меню
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    document.querySelector('.menu').classList.toggle('active');
+  });
+
+  // Модальне вікно
+  const openModalBtn = document.getElementById('openModalBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const contactModal = document.getElementById('contactModal');
+
+  openModalBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // щоб не було переходу по лінку
+    contactModal.style.display = 'flex';
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+    contactModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+      contactModal.style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
