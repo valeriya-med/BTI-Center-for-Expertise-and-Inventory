@@ -67,65 +67,68 @@ nav {
   text-shadow: 0 0 5px #FFC107;
 }
 
-.btn-contact {
+.contact-btn,
+.contact-btn:link,
+.contact-btn:visited,
+.contact-btn:active {
+  display: inline-block;
   background-color: #FFC107;
   color: #003366;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 25px;
   font-weight: 600;
-  text-decoration: none;
+  font-size: 1rem;
+  text-decoration: none;         /* прибирає підкреслення */
+  text-align: center;
   box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
-  transition: 0.3s;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.btn-contact:hover {
+/* Ховер / фокус */
+.contact-btn:hover,
+.contact-btn:focus {
   box-shadow: 0 0 20px rgba(255, 193, 7, 1);
   transform: translateY(-2px);
+  outline: none;
 }
 
-/* ================= HERO (версія 4.0) ================= */
-section.hero {
-  padding: 0;
-  margin: 0;
-  border-bottom: none;
-  width: 100%;
-  max-width: none;
-}
-
+/* ========== HERO ========== */
 .hero {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 70px);
+  min-height: 70vh
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  overflow: hidden;
+  justify-content: center;
+  text-align: left;
   color: #1b365d;
+  overflow: hidden;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  padding-left: 8vw;
 }
 
-/* ---- Фон ---- */
+/* --- фон банера --- */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("../../images/banner.jpg");
+  background-image: url("images/banner.jpg"); /* шлях до зображення */
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   z-index: 1;
 }
 
+/* --- напівпрозоре затемнення для контрасту --- */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.65); /* легке світле накриття */
   z-index: 2;
 }
 
-/* ---- Контент ---- */
-/* ---- HERO CONTENT ---- */
+/* --- контент поверх фону --- */
 .hero-content {
   position: relative;
   z-index: 3;
@@ -133,62 +136,73 @@ section.hero {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  gap: 25px;
+  padding: 30px;
 }
 
-/* Рядок логотип + основний текст */
-.hero-main-row {
+/* --- верхня частина: логотип + підпис поруч --- */
+.hero-top {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
 }
 
-/* Логотип */
+/* --- логотип --- */
 .hero-logo {
-  width: 300px; /* великий логотип */
+  width: 400px; /* зробила більшим */
   height: auto;
+  display: block;
 }
 
-/* Основний текст поруч із логотипом */
+/* --- основний підпис праворуч від логотипа --- */
 .hero-subtitle {
-  font-size: 3rem; /* великий шрифт */
-  font-weight: 800;
+  font-size: 2.0rem;
+  font-weight: 700;
   color: #1b365d;
   text-transform: uppercase;
+  margin: 0;
   line-height: 1.1;
-  letter-spacing: 1px;
+  text-align: left;
+  display: inline-block;
+  position: relative;
 }
 
-/* Опис під логотипом і основним текстом */
-.hero-description {
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: #1b365d;
+.hero-subtitle br + *,
+.hero-subtitle br::after {
+  content: '';
+}
+
+.hero-subtitle span {
+  display: block;
   text-align: center;
-  margin-top: 15px;
-  max-width: 800px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .hero-main-row {
+/* --- нижній текст під усім --- */
+.hero-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #1b365d;
+  margin-top: 5
+  px;
+}
+
+/* --- RESPONSIVE адаптація --- */
+@media (max-width: 768px) {
+  .hero-top {
     flex-direction: column;
+    text-align: center;
     gap: 15px;
   }
-  .hero-logo { width: 220px; }
-  .hero-subtitle { font-size: 2.2rem; }
-  .hero-description { font-size: 1.3rem; }
-}
-
-@media (max-width: 640px) {
-  .hero-logo { width: 180px; }
-  .hero-subtitle { font-size: 1.8rem; }
-  .hero-description { font-size: 1rem; }
+  .hero-logo {
+    width: 180px;
+  }
+  .hero-subtitle {
+    font-size: 1.6rem;
+  }
+  .hero-title {
+    font-size: 1.1rem;
+  }
 }
 
 /* ================= SECTIONS ================= */
@@ -480,20 +494,33 @@ section h2 {
 .contact-items {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 70px;
   margin-top: 40px;
+  flex-wrap: wrap; /* обов'язково, щоб на мобільних було красиво */
 }
 
 .contact-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+.contact-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 14px;
   color: #fff;
-  max-width: 250px;
-  text-align: center;
+  text-decoration: none;
+  cursor: pointer; /* обов'язково, щоб курсор змінювався */
+}
+
+.contact-item a:hover .contact-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(255, 204, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-icon {
@@ -505,11 +532,7 @@ section h2 {
   justify-content: center;
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(255, 204, 0, 0.4);
-  transition: transform 0.3s ease;
-}
-
-.contact-icon:hover {
-  transform: scale(1.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-icon i {
@@ -518,10 +541,10 @@ section h2 {
 }
 
 .contact-item p {
-  font-size: 1.1rem;
-  color: #fff;
-  font-weight: 500;
   margin: 0;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: inherit;
 }
 
 /* Карта */
