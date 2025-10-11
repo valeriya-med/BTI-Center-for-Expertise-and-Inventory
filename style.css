@@ -177,21 +177,71 @@ nav {
   margin-top: -100px; /* виправлено синтаксис */
 }
 
-/* --- RESPONSIVE адаптація --- */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 65vh;
+    padding: 60px 20px;
+  }
+
+  .hero-logo {
+    width: 380px;
+  }
+
+  .hero-subtitle,
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    margin-top: -60px;
+  }
+}
+
+/* --- Телефони --- */
 @media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    padding: 50px 15px;
+  }
+
   .hero-top {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
+
+  .hero-logo {
+    width: 250px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .hero-title {
+    font-size: 1.1rem;
+    margin-top: -20px;
+  }
+}
+
+/* --- Дуже малі екрани (айфони, старі телефони) --- */
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 10px;
+    min-height: 55vh;
+  }
+
   .hero-logo {
     width: 180px;
   }
+
   .hero-subtitle {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
+
   .hero-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-top: 10px;
   }
 }
 
@@ -780,50 +830,132 @@ section h2 {
   transition: 0.3s;
 }
 
-/* ================= MEDIA QUERIES ================= */
-@media screen and (max-width: 992px) {
-  /* Верхня смуга */
-  .header-top {
-    padding: 5px 15px;       /* зменшуємо висоту смуги */
-    flex-wrap: wrap;
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: center;
   }
 
-  .site-title {
-    font-size: 0.85rem;      /* зменшення тексту на мобільних */
-    margin-left: 8px;
+  /* показуємо бургер */
+  .menu-toggle {
+    display: flex;
   }
 
-  .contact-btn {
-    font-size: 0.85rem;
-    padding: 4px 8px;
-    height: 28px;
-    margin-left: 5px;
+  /* ховаємо меню */
+  .menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #0D1B2A;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 
-  .menu-toggle span {
-    height: 3px;
-    width: 25px;
+  /* при активному стані меню розкривається */
+  .menu.active {
+    max-height: 300px;
+    padding: 15px 20px;
   }
 
-  /* HERO */
-  .hero-logo {
-    width: 140px;            /* логотип зменшений на мобільних */
-  }
-
-  .hero-text {
-    font-size: 0.85rem;      /* текст під банером зменшений */
-    line-height: 1.3;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .hero-logo {
-    width: 120px;            /* ще менший логотип на маленьких телефонах */
-  }
-
-  .hero-text {
-    font-size: 0.8rem;
+  /* стилі посилань у мобільному меню */
+  .menu li a {
+    display: block;
+    padding: 8px 0;0
+    width: 100%;
   }
 }
 
+/* Модальне вікно */
+.modal {
+  display: none; /* ховаємо за замовчуванням */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Вміст модального */
+.modal-content {
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+/* Кнопка закриття */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* Поля форми */
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content .submit-btn {
+  background-color: #f9b233;
+  color: #000;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-content .submit-btn:hover {
+  background-color: #e1a02e;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .nav.show {
+    display: flex;
+  }
+}
