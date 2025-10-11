@@ -245,6 +245,63 @@ nav {
   }
 }
 
+/* Планшети та маленькі екрани */
+@media (max-width: 1024px) {
+  nav {
+    padding: 10px 15px; /* зменшили відступи зверху і знизу */
+  }
+
+  .logo {
+    font-size: 1.3rem; /* трохи менше, щоб текст не ліз за межі */
+  }
+
+  .logo img {
+    height: 40px; /* зменшили логотип */
+  }
+
+  .menu li a {
+    font-size: 0.95rem; /* трохи менший шрифт для меню */
+  }
+}
+
+/* Телефони */
+@media (max-width: 768px) {
+  nav {
+    padding: 8px 12px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+
+  .menu li a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Дуже маленькі екрани */
+@media (max-width: 480px) {
+  nav {
+    padding: 6px 10px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  .menu li a {
+    font-size: 0.85rem;
+  }
+}
+
 /* ================= SECTIONS ================= */
 section:not(.hero):not(.contacts):not(.consultation-section) {
   padding: 100px 20px;
