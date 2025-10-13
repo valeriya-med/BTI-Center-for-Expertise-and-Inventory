@@ -149,7 +149,7 @@ nav {
 }
 
 .hero-logo {
-  width: 500px; /* залишаємо більшим */
+  width: 450px; /* залишаємо більшим */
   height: auto;
   display: block;
   margin: 0 auto; /* центр логотипу, якщо треба */
@@ -550,6 +550,27 @@ section h2 {
   color: #0d1b2a;
   font-weight: 700;
   text-shadow: 0 0 5px rgba(160, 210, 219, 0.3);
+}
+
+.section-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.section-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75); /* стало більш матовим — приглушує фон */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section-bg > * {
+  position: relative; /* контент поверх накриття */
+  z-index: 2;
 }
 
 /* ================= CONTACTS (виправлено) ================= */
@@ -1016,3 +1037,50 @@ section h2 {
     display: flex;
   }
 }
+
+.bottom-info {
+  background: linear-gradient(135deg, #0d1b2a, #1c1e25);
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+}
+
+.bottom-info a {
+  color: #ffc107;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.bottom-info a:hover {
+  color: #ff9800;
+}
+
+.footer-link {
+  font-weight: 600;
+}
+
+.footer-text {
+  color: #bbb;
+  margin-top: 5px;
+  font-style: italic;
+  cursor: default;
+}
+
+.back-to-top {
+  margin-top: 15px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+  color: #1c1e25;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  background: linear-gradient(135deg, #ff9800, #ffc107);
+  transform: translateY(-2px);
+}
+

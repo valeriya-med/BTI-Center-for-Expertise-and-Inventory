@@ -7,6 +7,7 @@
   <title>Головна - BTI Expertise</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
 
 <script>
@@ -21,7 +22,7 @@
     <nav>
       <a href="index.html" class="logo">
         <img src="../static/images/zhitomir_gerb.png" alt="Герб Житомира">
-        БТІ «Центр експертизи та інвентаризації"
+        БТІ «Центр Експертизи та Інвентаризації"
       </a>
       <div class="menu-toggle" id="menu-toggle">
         <span></span>
@@ -54,7 +55,7 @@
       </div>
     </section>
 
-    <section id="home" class="about-section">
+    <section class="about-us section-bg" style="background-image: url('static/images/bg3.jpg');">
       <div class="about-container">
         <h2>Про нас</h2>
         <p>
@@ -66,10 +67,10 @@
     </section>
 
     <!-- Послуги -->
-    <section id="portfolio" class="services">
+    <section id="portfolio" class="services section-bg" style="background-image: url('static/images/bg1.jpg');">
       <h2>Наші послуги</h2>
       <div class="services-grid">
-        <div class="service-item">
+        <div class="service-item" data-aos="fade-up">
           <h3>Технічна інвентаризація</h3>
           <ul>
             <li>Виготовлення та оновлення технічних паспортів на квартири, будинки, нежитлові приміщення, гаражі, комерційні об’єкти;</li>
@@ -77,7 +78,7 @@
             <li>Внесення змін після реконструкції чи перепланування.</li>
           </ul>
         </div>
-        <div class="service-item">
+        <div class="service-item"  data-aos="fade-up" data-aos-delay="100">
           <h3>Правове оформлення нерухомості</h3>
           <ul>
             <li>Підготовка документів для купівлі-продажу, дарування, спадкування;</li>
@@ -85,7 +86,7 @@
             <li>Юридичні консультації з питань нерухомості та нотаріальний супровід.</li>
           </ul>
         </div>
-        <div class="service-item">
+        <div class="service-item" data-aos="fade-up" data-aos-delay="200">
           <h3>Земельні послуги</h3>
           <ul>
             <li>Проекти землеустрою, геодезичні та кадастрово-земельні роботи;</li>
@@ -93,7 +94,7 @@
             <li>Зміна цільового призначення.</li>
           </ul>
         </div>
-        <div class="service-item">
+        <div class="service-item" data-aos="fade-up" data-aos-delay="300">
           <h3>Додатково</h3>
           <ul>
             <li>Підготовка довідок та витягів для банків та органів влади;</li>
@@ -104,19 +105,49 @@
     </section>
 
     <!-- Чому нас обирають -->
-    <section id="reviews" class="why-us">
+    <section id="reviews" class="why-us section-bg" style="background-image: url('static/images/bg2.jpg');">
       <h2>Чому нас обирають?</h2>
       <div class="why-us-grid">
-        <div class="why-us-item"><i class="fa-solid fa-circle-user"></i><p>Індивідуальний підхід</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-briefcase"></i><p>Багаторічний досвід роботи у сфері БТІ</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-truck"></i><p>Виїзд на об'єкт</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-user-tie"></i><p>Кваліфіковані інженери та експерти</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-credit-card"></i><p>Найнижча вартість</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-bolt"></i><p>Оперативність у виконанні замовлень</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-thumbs-up"></i><p>Мінімальні терміни</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-file-signature"></i><p>Юридична правильність документів</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-trophy"></i><p>Високі стандарти</p></div>
-        <div class="why-us-item"><i class="fa-solid fa-handshake"></i><p>Підтримка клієнта «під ключ»</p></div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="50">
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Індивідуальний підхід</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fa-solid fa-briefcase"></i>
+          <p>Багаторічний досвід роботи у сфері БТІ</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="150">
+          <i class="fa-solid fa-truck"></i>
+          <p>Виїзд на об'єкт</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fa-solid fa-user-tie"></i>
+          <p>Кваліфіковані інженери та експерти</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="250">
+          <i class="fa-solid fa-credit-card"></i>
+          <p>Найнижча вартість</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fa-solid fa-bolt"></i>
+          <p>Оперативність у виконанні замовлень</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="350">
+          <i class="fa-solid fa-thumbs-up"></i>
+          <p>Мінімальні терміни</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="400">
+          <i class="fa-solid fa-file-signature"></i>
+          <p>Юридична правильність документів</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="450">
+          <i class="fa-solid fa-trophy"></i>
+          <p>Високі стандарти</p>
+        </div>
+        <div class="why-us-item" data-aos="zoom-in" data-aos-delay="500">
+          <i class="fa-solid fa-handshake"></i>
+          <p>Підтримка клієнта «під ключ»</p>
+        </div>
       </div>
     </section>
 
@@ -176,9 +207,22 @@
       <div class="bottom-info">
         <p>e-mail: <a href="mailto:pruvatbti@gmail.com">pruvatbti@gmail.com</a></p>
         <p>телефон: <a href="tel:+380674063005">(067) 406 30 05</a></p>
-        <p>© Технічна інвентаризація нерухомості "БТІ СТАНДАРТ"</p>
-        <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Нагору ↑</button>
+
+        <p>
+          <a href="#" class="footer-link" id="scrollToTop">
+            © Технічна інвентаризація нерухомості "БТІ СТАНДАРТ"
+          </a>
+        </p>
+
+        <p class="footer-text">
+          БТІ «Центр Експертизи та Інвентаризації»
+        </p>
+
+        <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+          Нагору ↑
+        </button>
       </div>
+
     </section>
   </main>
 
@@ -284,5 +328,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // тривалість анімації в мс
+    easing: 'ease-out', // стиль easing
+    once: true, // анімація відбувається лише один раз
+  });
+</script>
 </body>
 </html>
