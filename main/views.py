@@ -6,7 +6,7 @@ from .models import ContactMessage
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'main/index.html')
 
 
 def submit_form(request):
