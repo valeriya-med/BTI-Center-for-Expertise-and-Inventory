@@ -113,7 +113,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'BTIExpertise' / 'main' / 'static']
+STATICFILES_DIRS = [BASE_DIR.parent / 'main' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Static files (CSS, JavaScript, Images)
