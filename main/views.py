@@ -1,45 +1,47 @@
-from django.shortcuts import render
+import os
 from django.http import JsonResponse
 from django.core.mail import EmailMessage
+from django.shortcuts import render
 from django.conf import settings
 from .models import ContactMessage
-
 
 def index(request):
     return render(request, 'main/index.html')
 
-
 def submit_form(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        message_text = request.POST.get('message')
+        try:
+            name = request.POST.get('name', '').strip()
+            email = request.POST.get('email', '').strip()
+            phone = request.POST.get('phone', '').strip()
+            message_text = request.POST.get('message', '').strip()
 
-        ContactMessage.objects.create(
-            form_type='consultation',
-            name=name,
-            email=email,
-            phone=phone,
-            message=message_text
-        )
+            # Збереження у базі
+            contact = ContactMessage.objects.create(
+                form_type='consultation',
+                name=name,
+                email=email,
+                phone=phone,
+                message=message_text
+            )
 
-        email_message = EmailMessage(
-            subject=f"Нова заявка з консультації від {name}",
-            body=f"Ім'я: {name}\nEmail: {email}\nТелефон: {phone}\nПовідомлення:\n{message_text}",
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[settings.CONTACT_RECEIVER_EMAIL],
-        )
-        email_message.send(fail_silently=False)
+            # Відправка email адміністратору
+            email_message = EmailMessage(
+                subject=f"Нова заявка від {name}",
+                body=f"Ім'я: {name}\nEmail: {email}\nТелефон: {phone}\nПовідомлення:\n{message_text}",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[settings.CONTACT_RECEIVER_EMAIL],
+            )
 
-        return JsonResponse({
-            'status': 'ok',
-            'message': 'Дякуємо! Ваша форма успішно відправлена.'
-        })
-    return JsonResponse({
-        'status': 'error',
-        'message': 'Сталася помилка. Спробуйте ще раз.'
-    }, status=400)
+
+            email_message.send(fail_silently=False)
+
+            return JsonResponse({'status': 'ok', 'message': 'Дякуємо! Ваша форма успішно відправлена.'})
+
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': f'Сталася помилка: {str(e)}'}, status=500)
+
+    return JsonResponse({'status': 'error', 'message': 'Невірний метод запиту'}, status=400)
 
 
 
