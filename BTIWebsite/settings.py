@@ -126,5 +126,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# Можна одразу створити змінну для адресата
 CONTACT_RECEIVER_EMAIL = 'receiver@example.com'

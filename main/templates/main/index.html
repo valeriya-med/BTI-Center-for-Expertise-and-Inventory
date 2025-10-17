@@ -237,18 +237,16 @@
 </div>
 
 <script>
-  // Меню
   document.getElementById('menu-toggle').addEventListener('click', function() {
     document.querySelector('.menu').classList.toggle('active');
   });
 
-  // Модальне вікно
   const openModalBtn = document.getElementById('openModalBtn');
   const closeModalBtn = document.getElementById('closeModalBtn');
   const contactModal = document.getElementById('contactModal');
 
   openModalBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // щоб не було переходу по лінку
+    e.preventDefault();
     contactModal.style.display = 'flex';
   });
 
@@ -275,9 +273,9 @@ menuToggle.addEventListener('click', () => {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
   AOS.init({
-    duration: 1000, // тривалість анімації в мс
-    easing: 'ease-out', // стиль easing
-    once: false, // анімація відбувається лише один раз
+    duration: 1000,
+    easing: 'ease-out',
+    once: false,
   });
 </script>
 
@@ -291,7 +289,6 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         const formData = new FormData(this);
 
-        // Перевірка, чи файли додаються
         console.log('FormData entries:', [...formData.entries()]);
 
         try {
@@ -306,7 +303,6 @@ document.addEventListener('DOMContentLoaded', function() {
             messageContainer.style.display = 'block';
 
             if (result.status === 'ok') {
-                // Відправка в WhatsApp
                 const name = encodeURIComponent(formData.get('name') || '');
                 const phone = encodeURIComponent(formData.get('phone') || '');
                 const email = encodeURIComponent(formData.get('email') || '');
@@ -314,10 +310,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const whatsappURL = `https://wa.me/${whatsappNumber}?text=Ім'я:%20${name}%0AТелефон:%20${phone}%0AEmail:%20${email}%0AПовідомлення:%20${message}`;
                 window.open(whatsappURL, '_blank');
 
-                // Скидання форми
                 form.reset();
 
-                // Приховати повідомлення через 5 секунд
                 setTimeout(() => {
                     messageContainer.style.display = 'none';
                     messageContainer.textContent = '';
@@ -333,5 +327,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+document.getElementById('modalForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = this.elements['name'].value.trim();
+    const phone = this.elements['phone'].value.trim();
+
+    if (!name || !phone) {
+        alert("Будь ласка, заповніть усі поля!");
+        return;
+    }
+
+    const whatsappNumber = '+380934242711';
+    const text = `Нова заявка з сайту:%0AІм'я: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}`;
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+    window.open(whatsappURL, '_blank');
+
+    this.reset();
+
+    const modal = document.getElementById('contactModal');
+    if (modal) modal.style.display = 'none';
+});
+</script>
 </body>
 </html>

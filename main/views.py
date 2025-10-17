@@ -1,8 +1,5 @@
-import os
 from django.http import JsonResponse
-from django.core.mail import EmailMessage
-from django.shortcuts import render
-from django.conf import settings
+from django.shortcuts import render, redirect
 from .models import ContactMessage
 
 def index(request):
@@ -16,25 +13,13 @@ def submit_form(request):
             phone = request.POST.get('phone', '').strip()
             message_text = request.POST.get('message', '').strip()
 
-            # Збереження у базі
-            contact = ContactMessage.objects.create(
+            ContactMessage.objects.create(
                 form_type='consultation',
                 name=name,
                 email=email,
                 phone=phone,
                 message=message_text
             )
-
-            # Відправка email адміністратору
-            email_message = EmailMessage(
-                subject=f"Нова заявка від {name}",
-                body=f"Ім'я: {name}\nEmail: {email}\nТелефон: {phone}\nПовідомлення:\n{message_text}",
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[settings.CONTACT_RECEIVER_EMAIL],
-            )
-
-
-            email_message.send(fail_silently=False)
 
             return JsonResponse({'status': 'ok', 'message': 'Дякуємо! Ваша форма успішно відправлена.'})
 
@@ -44,35 +29,21 @@ def submit_form(request):
     return JsonResponse({'status': 'error', 'message': 'Невірний метод запиту'}, status=400)
 
 
-
 def submit_modal(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         phone = request.POST.get('phone')
 
-        # Зберігаємо у базі
         ContactMessage.objects.create(
             form_type='modal',
             name=name,
             phone=phone
         )
 
-        # Відправка листа адміністратору
-        email_message = EmailMessage(
-            subject=f"Нова заявка з модальної форми від {name}",
-            body=f"Ім'я: {name}\nТелефон: {phone}",
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[settings.CONTACT_RECEIVER_EMAIL],
-        )
-        email_message.send(fail_silently=False)
+        whatsapp_number = '+380934242711'
+        text = f"Нова заявка з сайту:\nІм'я: {name}\nТелефон: {phone}"
+        whatsapp_url = f"https://wa.me/{whatsapp_number}?text={text.replace(' ', '%20').replace('\n','%0A')}"
 
-        # Повертаємо красиве повідомлення для користувача
-        return JsonResponse({
-            'status': 'ok',
-            'message': 'Дякуємо! Ваша заявка успішно надіслана. Ми з вами зв’яжемося найближчим часом.'
-        })
+        return redirect(whatsapp_url)
 
-    return JsonResponse({
-        'status': 'error',
-        'message': 'Сталася помилка. Будь ласка, спробуйте ще раз.'
-    }, status=400)
+    return redirect('/')

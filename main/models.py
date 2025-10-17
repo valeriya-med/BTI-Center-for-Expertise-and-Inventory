@@ -8,7 +8,7 @@ class ContactMessage(models.Model):
 
     form_type = models.CharField(max_length=20, choices=FORM_TYPE_CHOICES)
     name = models.CharField(max_length=255)
-    email = models.EmailField(blank=True)  # для модальної форми email може бути порожнім
+    email = models.EmailField(blank=True)
     phone = models.CharField(max_length=50)
     message = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
