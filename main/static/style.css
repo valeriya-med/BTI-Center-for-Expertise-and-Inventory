@@ -98,7 +98,7 @@ nav {
 .hero {
   position: relative;
   width: 100%;
-  min-height: 70vh
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -937,7 +937,7 @@ section h2 {
 
   .menu li a {
     display: block;
-    padding: 8px 0;0
+    padding: 8px 0;
     width: 100%;
   }
 }

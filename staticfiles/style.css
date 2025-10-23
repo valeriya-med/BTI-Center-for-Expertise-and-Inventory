@@ -78,7 +78,7 @@ nav {
   border-radius: 25px;
   font-weight: 600;
   font-size: 1rem;
-  text-decoration: none;         /* прибирає підкреслення */
+  text-decoration: none;
   text-align: center;
   box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -86,7 +86,7 @@ nav {
   cursor: pointer;
 }
 
-/* Ховер / фокус */
+
 .contact-btn:hover,
 .contact-btn:focus {
   box-shadow: 0 0 20px rgba(255, 193, 7, 1);
@@ -109,18 +109,17 @@ nav {
   box-sizing: border-box;
 }
 
-/* --- фон банера --- */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("images/banner.jpg"); /* шлях до зображення */
+  background-image: url("images/banner.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   z-index: 1;
 }
 
-/* --- напівпрозоре затемнення для контрасту --- */
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -128,7 +127,7 @@ nav {
   z-index: 2;
 }
 
-/* --- контент поверх фону --- */
+
 .hero-content {
   position: relative;
   z-index: 3;
@@ -140,7 +139,7 @@ nav {
   padding: 30px;
 }
 
-/* --- верхня частина: логотип + підпис поруч --- */
+
 .hero-top {
   display: flex;
   align-items: center;
@@ -149,32 +148,32 @@ nav {
 }
 
 .hero-logo {
-  width: 450px; /* залишаємо більшим */
+  width: 450px;
   height: auto;
   display: block;
-  margin: 0 auto; /* центр логотипу, якщо треба */
+  margin: 0 auto;
 }
 
-/* --- основний підпис праворуч від логотипа --- */
+
 .hero-subtitle,
 .hero-title {
-  font-size: 2rem;  /* однаковий розмір для обох текстів */
+  font-size: 2rem;
   font-weight: 700;
   color: #1b365d;
   text-transform: uppercase;
   margin: 0;
   line-height: 1.1;
-  text-align: center; /* вирівнювання по центру, щоб фон не змінювався */
+  text-align: center;
 }
 
-/* якщо потрібні блоки */
+
 .hero-subtitle span {
   display: block;
 }
 
-/* --- нижній текст під усім --- */
+
 .hero-title {
-  margin-top: -100px; /* виправлено синтаксис */
+  margin-top: -100px;
 }
 
 @media (max-width: 1024px) {
@@ -197,7 +196,7 @@ nav {
   }
 }
 
-/* --- Телефони --- */
+
 @media (max-width: 768px) {
   .hero {
     min-height: 60vh;
@@ -224,7 +223,7 @@ nav {
   }
 }
 
-/* --- Дуже малі екрани (айфони, старі телефони) --- */
+
 @media (max-width: 480px) {
   .hero {
     padding: 40px 10px;
@@ -245,26 +244,26 @@ nav {
   }
 }
 
-/* Планшети та маленькі екрани */
+
 @media (max-width: 1024px) {
   nav {
-    padding: 10px 15px; /* зменшили відступи зверху і знизу */
+    padding: 10px 15px;
   }
 
   .logo {
-    font-size: 1.3rem; /* трохи менше, щоб текст не ліз за межі */
+    font-size: 1.3rem;
   }
 
   .logo img {
-    height: 40px; /* зменшили логотип */
+    height: 40px;
   }
 
   .menu li a {
-    font-size: 0.95rem; /* трохи менший шрифт для меню */
+    font-size: 0.95rem;
   }
 }
 
-/* Телефони */
+
 @media (max-width: 768px) {
   nav {
     padding: 8px 12px;
@@ -283,7 +282,7 @@ nav {
   }
 }
 
-/* Дуже маленькі екрани */
+
 @media (max-width: 480px) {
   nav {
     padding: 6px 10px;
@@ -302,7 +301,7 @@ nav {
   }
 }
 
-/* ================= SECTIONS ================= */
+
 section:not(.hero):not(.contacts):not(.consultation-section) {
   padding: 100px 20px;
   max-width: 1000px;
@@ -327,7 +326,7 @@ section h2 {
   margin-bottom: 20px;
 }
 
-/* ================= RESPONSIVE ================= */
+
 @media (max-width: 992px) {
   .header-banner {
     height: 50vh;
@@ -563,17 +562,17 @@ section h2 {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.75); /* стало більш матовим — приглушує фон */
+  background: rgba(255, 255, 255, 0.75);
   z-index: 1;
   pointer-events: none;
 }
 
 .section-bg > * {
-  position: relative; /* контент поверх накриття */
+  position: relative;
   z-index: 2;
 }
 
-/* ================= CONTACTS (виправлено) ================= */
+/* ================= CONTACTS ================= */
 .contacts-background {
   background: linear-gradient(to bottom, #2d2f39, #1c1e25);
   color: #fff;
@@ -608,14 +607,14 @@ section h2 {
   text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
 }
 
-/* Іконки + текст */
+
 .contact-items {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 70px;
   margin-top: 40px;
-  flex-wrap: wrap; /* обов'язково, щоб на мобільних було красиво */
+  flex-wrap: wrap;
 }
 
 .contact-item {
@@ -632,7 +631,7 @@ section h2 {
   gap: 14px;
   color: #fff;
   text-decoration: none;
-  cursor: pointer; /* обов'язково, щоб курсор змінювався */
+  cursor: pointer;
 }
 
 .contact-item a:hover .contact-icon {
@@ -665,7 +664,6 @@ section h2 {
   color: inherit;
 }
 
-/* Карта */
 .map {
   width: 100%;
   margin-top: 50px;
@@ -678,7 +676,6 @@ section h2 {
   border-radius: 12px;
 }
 
-/* Адаптив */
 @media (max-width: 768px) {
   .contact-items {
     flex-direction: column;
@@ -716,7 +713,6 @@ section h2 {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Заголовок */
 .consultation-container h2 {
   color: #ffffff;
   font-size: 22px;
@@ -725,7 +721,7 @@ section h2 {
   letter-spacing: 0.5px;
 }
 
-/* ===== ФОРМА ===== */
+
 .consultation-container form {
   display: flex;
   flex-direction: column;
@@ -757,7 +753,6 @@ section h2 {
   resize: none;
 }
 
-/* Кнопка */
 .consultation-container button {
   background: #ffcc00;
   color: #1c1e25;
@@ -775,7 +770,7 @@ section h2 {
   transform: scale(1.03);
 }
 
-/* ================= RESPONSIVE ================= */
+
 @media (max-width: 992px) {
   .contacts .contact-items {
     flex-direction: column;
@@ -886,7 +881,7 @@ section h2 {
   background: #e6c200;
 }
 
-/* ================== MOBILE NAVIGATION FIX ================== */
+
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -915,12 +910,10 @@ section h2 {
     align-items: center;
   }
 
-  /* показуємо бургер */
   .menu-toggle {
     display: flex;
   }
 
-  /* ховаємо меню */
   .menu {
     position: absolute;
     top: 100%;
@@ -937,13 +930,11 @@ section h2 {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 
-  /* при активному стані меню розкривається */
   .menu.active {
     max-height: 300px;
     padding: 15px 20px;
   }
 
-  /* стилі посилань у мобільному меню */
   .menu li a {
     display: block;
     padding: 8px 0;0
@@ -951,9 +942,8 @@ section h2 {
   }
 }
 
-/* Модальне вікно */
 .modal {
-  display: none; /* ховаємо за замовчуванням */
+  display: none;
   position: fixed;
   z-index: 9999;
   left: 0;
@@ -965,7 +955,6 @@ section h2 {
   align-items: center;
 }
 
-/* Вміст модального */
 .modal-content {
   background-color: #fff;
   padding: 30px 25px;
@@ -976,7 +965,6 @@ section h2 {
   position: relative;
 }
 
-/* Кнопка закриття */
 .close-btn {
   position: absolute;
   top: 10px;
@@ -990,7 +978,6 @@ section h2 {
   color: #000;
 }
 
-/* Поля форми */
 .modal-content input {
   width: 100%;
   padding: 12px;
@@ -1083,4 +1070,3 @@ section h2 {
   background: linear-gradient(135deg, #ff9800, #ffc107);
   transform: translateY(-2px);
 }
-
