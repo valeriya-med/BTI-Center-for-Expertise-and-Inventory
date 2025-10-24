@@ -1071,3 +1071,93 @@ section h2 {
   transform: translateY(-2px);
 }
 
+/* ================= FAQ ================= */
+.faq {
+  background: #f8f9fb;
+  color: #0a1a4f;
+  padding: 90px 20px;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+.faq h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #0a1a4f;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px rgba(10, 26, 79, 0.2);
+  margin-bottom: 50px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.faq dl {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq dt {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 22px;
+  cursor: pointer;
+  color: #0a1a4f;
+}
+
+.faq dt::before {
+  content: "\f059";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffd700;
+}
+
+.faq dd {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  padding-left: 22px;
+  color: #1a2a5a;
+}
+
+.faq dd::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 12px 0;
+}
+
+@media (max-width: 768px) {
+  .faq h2 {
+    font-size: 2rem;
+  }
+
+  .faq dt {
+    font-size: 1rem;
+  }
+
+  .faq dd {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq h2 {
+    font-size: 1.8rem;
+  }
+
+  .faq dt {
+    font-size: 0.95rem;
+  }
+
+  .faq dd {
+    font-size: 0.9rem;
+  }
+}
